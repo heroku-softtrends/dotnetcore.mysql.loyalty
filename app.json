@@ -1,14 +1,11 @@
-﻿{
+{
   "name": "ASP.NET Core MySQL Website",
-  "description": "ASP.NET Core MySQL website",
+  "description": "ASP.NET Core MySQL website using Asp.Net Core",
   "website": "http://www.softtrends.com/",
   "repository": "https://github.com/heroku-softtrends/dotnetcore.mysql.sample",
   "logo": "https://avatars2.githubusercontent.com/u/20908829?v=3&s=150",
-  "keywords": [ "aspnet core", "aspnet core mysql" ],
-  "addons": [
-    "cleardb:ignite"
-  ],
-  "buildpacks": [
+  "keywords": ["aspnet core", "aspnet core MySQL"],
+ "addons": [ "cleardb:ignite"], "buildpacks": [
     {
       "url": "https://github.com/heroku-softtrends/dotnetcore.main.git"
     }
