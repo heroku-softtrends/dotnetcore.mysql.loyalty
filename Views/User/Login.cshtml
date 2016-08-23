@@ -1,0 +1,289 @@
+﻿@model Loyalty.Models.Login
+@{
+    ViewBag.Title = "Log in";
+    Layout = null;
+}
+<html lang="en" class="no-js">
+<!--<![endif]--><!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8">
+    <title>Loyalty</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <script src="~/assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css">
+    <link href="~/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="~/assets/plugins/select2/select2.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/plugins/select2/select2-metronic.css">
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="~/assets/css/style-metronic.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/style-responsive.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color">
+    <link href="~/assets/css/pages/login.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/custom.css" rel="stylesheet" type="text/css">
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="~/Scripts/ModalPopups.js"></script>
+    <script src="~/Scripts/addthis_widget.js"></script>
+    <script type="text/javascript">
+        function ModalPopupsAlert(headerText, Message) {
+            ModalPopups.Alert("jsAlert1", headerText,
+                "<div style='padding:25px;'>" + Message + "</div>",
+                {
+                    okButtonText: "OK"
+                }
+            );
+        }
+    </script>
+</head>
+<!-- BEGIN BODY -->
+<body class="login" style="">
+    <!-- BEGIN LOGO -->
+    <div class="logo">
+        <a href="#" style="cursor:none">
+            @*<img src="~/assets/img/workers-in-motion.png" alt="">*@
+        </a>
+    </div>
+
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGIN FORM -->
+
+        <form asp-controller="User" asp-action="Login" asp-route-returnurl="@ViewBag.URL" method="post" class="login-form" id="target" role="form" novalidate="novalidate">
+
+            <h3 class="form-title">Login to your account</h3>
+            <div class="alert alert-danger display-hide">
+                <button class="close" data-close="alert"></button>
+                <span>
+                    Enter any username and password.
+                </span>
+            </div>
+            <div class="form-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <label class="control-label visible-ie8 visible-ie9">Username</label>
+                <div class="input-icon">
+                    <i class="fa fa-user"></i>
+                    <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email ID" name="UserName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">Password</label>
+                <div class="input-icon">
+                    <i class="fa fa-lock"></i>
+                    <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="Password">
+                </div>
+            </div>
+            <div class="form-actions">
+                <label class="checkbox">
+                    @*<div class="checker"><span class=""><input type="checkbox" name="remember"></span></div> Remember me*@
+                </label>
+                <button type="submit" value="Login" class="btn green pull-right">
+                    Login <i class="m-icon-swapright m-icon-white"></i>
+                </button>
+            </div>
+
+            <div  >
+                @if (TempData["notice"] != null)
+            {
+                    <p style="color: red;">@TempData["notice"]</p>
+                }
+            </div>
+
+            <div class="create-account">
+                <p>
+                    Don't have an account yet ?&nbsp;
+                    <a href="@Url.Action("Create","User")">
+                        Create an account
+                    </a>
+                </p>
+            </div>
+        </form>
+        <!-- END LOGIN FORM -->
+        <!-- BEGIN FORGOT PASSWORD FORM -->
+
+        <form class="forget-form" novalidate="novalidate" method="post">
+            <h3>Forgot Password ?</h3>
+            <p>
+                Enter your e-mail address below to reset your password.
+            </p>
+            <div class="form-group">
+                <div class="input-icon">
+                    <i class="fa fa-envelope"></i>
+                    <input class="form-control placeholder-no-fix" type="text" id="txtemail" autocomplete="off" placeholder="Email" name="email">
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" id="back-btn" class="btn">
+                    <i class="m-icon-swapleft"></i> Back
+                </button>
+                <button type="submit" class="btn green pull-right">
+                    Submit <i class="m-icon-swapright m-icon-white"></i>
+                </button>
+            </div>
+        </form>
+
+        <div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px;
+    top: 0px; width: 100%; height: 100%; background-color: #E4E0E0; z-index: 30001;
+    opacity: .8; filter: alpha(opacity=70);display:none">
+            <p style="position: absolute; top: 30%; left: 45%; font-weight:bold; color: #F24D4D;text-align:center;">
+                <span id="loadTxt">Loading...</span><br /><img src="~/images/ajax-loader.gif" height="54" width="55">
+
+            </p>
+        </div>
+    </div>
+    <!-- END LOGIN -->
+    <!-- BEGIN COPYRIGHT -->
+    <div class="copyright">
+        2016 © Loyalty.
+    </div>
+    <!-- END COPYRIGHT -->
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <!--[if lt IE 9]>
+        <script src="assets/plugins/respond.min.js"></script>
+        <script src="assets/plugins/excanvas.min.js"></script>
+        <![endif]-->
+
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="~/assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="~/assets/plugins/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/assets/plugins/select2/select2.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="~/assets/scripts/app.js"></script>
+    <script src="~/assets/scripts/login.js"></script>
+
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+
+        function setBusyLoaderVisibility(isShow) {
+            document.getElementById("divLoading").style.display = isShow ? "block" : "none";
+        }
+
+        jQuery(document).ready(function () {
+            App.init();
+            Login.init();
+
+            $("#target").submit(function (event) {
+                $('#loadTxt').html("Loading ...");
+                setBusyLoaderVisibility(true);
+
+            });
+            setTimeout(function () {
+                if ($("#sample_1_info") && $("#sample_1_info").html()) {
+                    var pagingParts = $("#sample_1_info").html().match(/[0-9]+/g);
+                    if (pagingParts.length > 2) {
+                        if (pagingParts[1] == $("div.table-scrollable table tr").length - 1) {
+                            setBusyLoaderVisibility(false);
+                        }
+                    }
+                    else {
+                        setBusyLoaderVisibility(false);
+                    }
+                }
+                else {
+                    setBusyLoaderVisibility(false);
+                }
+            }, 0);
+        });
+        var minutes;
+        var timeoffset;
+        function calculate_time_zone() {
+            //alert('hi');
+            var rightNow = new Date();
+            var jan1 = new Date(rightNow.getFullYear(), 0, 1, 0, 0, 0, 0);  // jan 1st
+            var june1 = new Date(rightNow.getFullYear(), 6, 1, 0, 0, 0, 0); // june 1st
+            var temp = jan1.toGMTString();
+            var jan2 = new Date(temp.substring(0, temp.lastIndexOf(" ") - 1));
+            temp = june1.toGMTString();
+            var june2 = new Date(temp.substring(0, temp.lastIndexOf(" ") - 1));
+            var std_time_offset = (jan1 - jan2) / (1000 * 60 * 60);
+            var daylight_time_offset = (june1 - june2) / (1000 * 60 * 60);
+            //alert(std_time_offset + '/' + daylight_time_offset);
+            var dst;
+            if (std_time_offset == daylight_time_offset) {
+                dst = "0"; // daylight savings time is NOT observed
+            } else {
+                // positive is southern, negative is northern hemisphere
+                var hemisphere = std_time_offset - daylight_time_offset;
+                if (hemisphere >= 0)
+                    std_time_offset = daylight_time_offset;
+                dst = "1"; // daylight savings time is observed
+            }
+            var i;
+            // Here set the value of hidden field to the ClientTimeZone.
+            timeoffset = std_time_offset;
+            minutes = convert(std_time_offset);
+            //alert(minutes);
+        }
+        // This function is to convert the timezoneoffset to Standard format
+        function convert(value) {
+            var hours = parseInt(value);
+            value -= parseInt(value);
+            value *= 60;
+            var mins = parseInt(value);
+            value -= parseInt(value);
+            value *= 60;
+            var secs = parseInt(value);
+            var display_hours = hours;
+            // handle GMT case (00:00)
+            if (hours == 0) {
+                display_hours = "00";
+            } else if (hours > 0) {
+                // add a plus sign and perhaps an extra 0
+                display_hours = (hours < 10) ? "+0" + hours : "+" + hours;
+            } else {
+                // add an extra 0 if needed
+                display_hours = (hours > -10) ? "-0" + Math.abs(hours) : hours;
+            }
+            mins = (mins < 10) ? "0" + mins : mins;
+            return display_hours + ":" + mins;
+        }
+        // Adding the funtion to onload event of document object
+        //window.onload = calculate_time_zone;
+
+        $(function () {
+            //alert(/\((.*)\)/.exec(new Date().toString())[1]);
+            calculate_time_zone();
+            $.ajax({
+                type: "POST",
+                url: "/User/GetTimeZoneID",
+                data: {
+                    // TimeZoneID: (/\((.*)\)/.exec(new Date().toString())) != null ? (/\((.*)\)/.exec(new Date().toString())[1]) : ""
+                    TimeZoneID: minutes,
+                    TimeOffset: timeoffset
+                },
+                async: true,
+                success: function (data) {
+                },
+                error: function (x, e) {
+                    //  alert("error occur");
+                }
+            });
+        });
+    </script>
+
+
+    <!-- END JAVASCRIPTS -->
+    <!-- END BODY -->
+</body>
+</html>

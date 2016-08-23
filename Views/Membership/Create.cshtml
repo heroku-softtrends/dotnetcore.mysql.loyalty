@@ -1,0 +1,112 @@
+﻿
+@model Loyalty.Models.Membership
+
+@{
+    ViewBag.Title = "Add";
+
+    @Html.Raw(TempData["msg"])
+}
+
+
+<html>
+<head>
+    <title>Add Membership</title>
+
+</head>
+<body>
+    <!-- BEGIN PAGE HEADER-->
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+            <h3 class="page-title">
+                Add Membership
+            </h3>
+            <ul class="page-breadcrumb breadcrumb">
+                <li>
+                    <i class="icon-home"></i>
+                    <a href="@Url.Action("Index","Membership")">Home</a>
+                    <i class="icon-angle-right"></i>
+                </li>
+
+            </ul>
+            <!-- END PAGE TITLE & BREADCRUMB-->
+        </div>
+    </div>
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN DASHBOARD STATS -->
+    <div class="row">
+    </div>
+    <!-- END DASHBOARD STATS -->
+
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <!-- BEGIN PORTLET-->
+            <div class="portlet box grey">
+                <div class="portlet-title">
+                    <div class="caption"><i class="icon-cog"></i>This page will allow you to add a Membership.</div>
+                </div>
+                <div class="portlet-body form">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <div class="form-body">
+                                <h3 class="form-section">Membership Information</h3>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.TextBoxFor(model => model.MembershipID, new { @class = "hidden" })
+                                            @Html.TextBoxFor(model => model.UserID, new { @class = "hidden" })
+                                            @Html.Label("Member ID")
+                                            @Html.TextBoxFor(model => model.MemberID, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.MemberID)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+
+                                            @Html.Label("Loyalty Card No")
+                                            @Html.TextBoxFor(model => model.LoyaltyCardNo, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.LoyaltyCardNo)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.Label("Expiration Date")
+
+                                            @Html.TextBoxFor(model => model.ExpirationDate, new { @class = "form-control", @type = "date" })
+                                            @Html.ValidationMessageFor(model => model.ExpirationDate)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.Label("Member Site URL")
+
+                                            @Html.TextBoxFor(model => model.MemberSiteURL, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.MemberSiteURL)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="form-actions right">
+                            <a href="@Url.Action("Index", "Membership")" class="btn default">Cancel</a>
+                            <button type="submit" value="Edit" class="btn blue"><i class="icon-ok"></i> Add</button>
+                        </div>
+                    }
+                    <!-- END PORTLET-->
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+            <!-- END PAGE -->
+        </div>
+    </div>
+
+</body>
+</html>

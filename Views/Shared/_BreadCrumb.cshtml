@@ -1,0 +1,34 @@
+﻿@{
+    @model DBAccess.Model.ViewModel.BreadCrumb
+    int i = 0;
+}
+
+@if (Model != null && Model.breadcrumbs != null && Model.breadcrumbs.Count > 0)
+{
+    foreach (var item in Model.breadcrumbs)
+    {
+        i = i + 1;
+        if (item.flag == 1)
+        {
+            <li>
+                <i class="icon-home"></i>
+                <a href="@Url.Action(item.action, item.controller)">
+                    @item.name
+                </a>
+                <i class="icon-angle-right"></i>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="@Url.Action(item.action, item.controller)">
+                    @item.name
+                </a>
+                if (Model.breadcrumbs.Count != i)
+                {
+                <i class="icon-angle-right"></i>
+                }
+            </li>
+        }
+    }
+}

@@ -1,0 +1,187 @@
+﻿
+@model Loyalty.Models.Users
+
+@{
+    ViewBag.Title = "Update";
+
+    @Html.Raw(TempData["msg"])
+}
+
+
+<html>
+<head>
+    <title>My Account</title>
+    <style type="text/css">
+        /*.leftbar-heading {
+            font-family: Arial,Verdana, Helvetica, sans-serif;
+            font-size: 13px;
+            font-style: normal;
+            line-height: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+        }*/
+    </style>
+</head>
+<body>
+    <!-- BEGIN PAGE HEADER-->
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+            <h3 class="page-title">
+                Update User Account
+            </h3>
+            <ul class="page-breadcrumb breadcrumb">
+                <li>
+                    <i class="icon-home"></i>
+                    <a href="@Url.Action("Index","Membership")">Home</a>
+                    <i class="icon-angle-right"></i>
+                </li>
+
+            </ul>
+            <!-- END PAGE TITLE & BREADCRUMB-->
+        </div>
+    </div>
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN DASHBOARD STATS -->
+    <div class="row">
+    </div>
+    <!-- END DASHBOARD STATS -->
+
+
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <!-- BEGIN PORTLET-->
+            <div class="portlet box grey">
+                <div class="portlet-title">
+                    <div class="caption"><i class="icon-cog"></i>This page will allow you to update an User.</div>
+                </div>
+                <div class="portlet-body form">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <div class="form-body">
+                                <h3 class="form-section">Account Information</h3>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        @Html.HiddenFor(model => model.UserID)
+                                        <div class="form-group">                   
+                                            @Html.Label("First Name")
+                                            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.FirstName)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.Label("Last Name")
+                                           
+                                            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.LastName)
+                                        </div>
+                                    </div>
+                                    @*<div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Gender, new { @class = "control-label" })
+                                            @Html.TextBoxFor(model => model.Gender, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Gender)
+                                        </div>
+                                    </div>*@
+                                    <div class="form-group">
+                                        @Html.Label("Gender")
+                                        <br />
+                                        @Html.RadioButton("Gender", "Male")@Html.Label("Male")
+                                        @Html.RadioButton("Gender", "Female")@Html.Label("Female")
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                       
+                                            @Html.Label("Date of Birth")
+                                            @Html.TextBoxFor(model => model.DateofBirth, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date" })
+                                            @Html.ValidationMessageFor(model => model.DateofBirth)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">                                           
+                                            @Html.Label("Mobile Number")
+                                            @Html.TextBoxFor(model => model.MobileNumber, new { @class = "form-control", @type = "number" })
+                                            @Html.ValidationMessageFor(model => model.MobileNumber)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.Label("Email ID")                                           
+                                            @Html.TextBoxFor(model => model.EmailID, new { @class = "form-control", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(model => model.EmailID)
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            @Html.Label("Password")                                        
+                                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @type = "password" })
+                                            @Html.ValidationMessageFor(model => model.Password)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="form-actions right">
+                            <a href="@Url.Action("Index", "Membership")" class="btn default">Cancel</a>
+                            <button type="submit" value="Account" class="btn blue"><i class="icon-ok"></i> Update</button>
+                        </div>
+                    }
+                    <!-- END PORTLET-->
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+            <!-- END PAGE -->
+        </div>
+    </div>
+
+</body>
+</html>
+<script type="text/javascript">
+    $('#UserName').keydown(function (event) {
+        var key = event.keyCode || event.charCode;
+        if (key == 32)
+            return false;
+    });
+    //$('#PasswordHash').keydown(function (event) {
+    //    var key = event.keyCode || event.charCode;
+    //    if (key == 32)
+    //        return false;
+    //});
+    //$('#ConfirmPassword').keydown(function (event) {
+    //    var key = event.keyCode || event.charCode;
+    //    if (key == 32)
+    //        return false;
+    //});
+
+    function RegionSelectedIndexChanged() {
+        $.ajax({
+            type: "POST",
+            url: "/User/Region",
+            data: {
+                RegionGUID: $("#RegionGUID").val()
+            },
+            async: true,
+            success: function (data) {
+                $("#TerritoryGUID").empty();
+                if (data.length != 1)
+                    $("#TerritoryGUID").append("<option value>Select</option>");
+                $.each(data, function (index, optionData) {
+                    $("#TerritoryGUID").append("<option value='" + optionData.Value + "'>" + optionData.Text + "</option>");
+                });
+            },
+            error: function (x, e) {
+                alert("error occur");
+            }
+        });
+    }
+</script>

@@ -1,0 +1,147 @@
+﻿
+
+@model IEnumerable<Loyalty.Models.Membership>
+@{
+    ViewBag.Title = "Update";
+
+    @Html.Raw(TempData["msg"])
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <style type="text/css">
+        /*.leftbar-heading {
+            font-family: Arial,Verdana, Helvetica, sans-serif;
+            font-size: 13px;
+            font-style: normal;
+            line-height: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+        }*/
+    </style>
+</head>
+<body>
+    <!-- BEGIN PAGE HEADER-->
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+
+
+            <h3 class="page-title">
+
+                Add / Manage Membership
+
+            </h3>
+
+            <ul class="page-breadcrumb breadcrumb">
+
+                <li>
+                    <i class="icon-home"></i>
+                    <a href="@Url.Action("Index","Membership")">
+                        Home
+                    </a>
+                    <i class="icon-angle-right"></i>
+                </li>
+
+            </ul>
+            <!-- END PAGE TITLE & BREADCRUMB-->
+        </div>
+    </div>
+    <!-- END PAGE HEADER-->
+    <!-- BEGIN DASHBOARD STATS -->
+    <div class="row">
+    </div>
+    <!-- END DASHBOARD STATS -->
+
+
+    <div class="clearfix"></div>
+    <div class="portlet box grey">
+        <div class="portlet-title">
+
+            <div class="caption"><i class="icon-globe"></i>You can use this page to review all membership.</div>
+
+        </div>
+
+        <div class="portlet-body">
+            <div class="table-toolbar">
+                <div class="btn-group">
+                    <a href="@Url.Action("Create", "Membership")" class="btn green">
+                        Add Membership <i class='icon-plus'></i>
+                    </a>
+
+                </div>
+            </div>
+            <div id="sample_editable_1_wrapper" class="dataTables_wrapper" role="grid">
+                <table class="table table-striped table-hover table-bordered dataTable" id="sample_editable_1" aria-describedby="sample_editable_1_info" style="width: 1065px;">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" style="width: 233px;" aria-label="MemberID:activate to sort column ascending">
+                                Member ID
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" style="width: 240px;" aria-label="LoyaltyCardNo: activate to sort column ascending">
+                                Loyalty Card No
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" style="width: 240px;" aria-label="ExpirationDate: activate to sort column ascending">
+                                Expiration Date
+                            </th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" style="width: 240px;" aria-label="MemberSiteURL: activate to sort column ascending">
+                                Member Site URL
+                            </th>
+                            <th class="sorting-disabled" role="columnheader" tabindex="0" aria-controls="sample_editable_1" rowspan="1" colspan="1" style="width: 240px;" aria-label="Actions: activate to sort column ascending">
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody role="alert" aria-live="polite" aria-relevant="all">
+                        @if (Model != null && Model.Count() > 0)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr class="odd gradeX">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MemberID)
+                                    </td>
+                                    <td>
+
+                                        @Html.DisplayFor(modelItem => item.LoyaltyCardNo)
+
+
+                                    </td>
+                                    <td>@Convert.ToString(string.Format("{0:MM/dd/yyyy}", item.ExpirationDate))</td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MemberSiteURL)
+
+                                    </td>
+                                    <td>
+                                        <div style="padding:5px">
+                                            @Html.ActionLink("Edit", "Edit", "Membership", new { id = item.MembershipID }, new { @class = "label label-sm label-success", @style = "border-radius:0px;margin-right:4px" })
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5" align="center" style="color:red">
+                                    No Data Found
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+
+            </div><div class="row"></div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1363 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        Softtrends PVRtracks LivePVR Phone Call Recorder, Audio, Meeting, Mobile Content
+        Recorder Server
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+        .inner {
+            overflow: hidden;
+            padding: 40px 40px 30px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            padding: 0px;
+            margin: 0;
+        }
+
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        p { /*color: #6b6b6b;*/
+            line-height: 19px;
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+        .pricing_table {
+            padding: 0 0 40px;
+        }
+
+        .white_table table {
+            width: 100%;
+            background: url("../images/bg_white_pricing_table.jpg") repeat-x scroll 0 0 #eeeeee;
+        }
+
+        .w_table_l_grey {
+            background-color: #e1e1e1;
+        }
+
+        .w_table_d_grey {
+            background-color: #eeeeee;
+        }
+
+        .white_table table th {
+            border-left: 1px solid #D5D5D5;
+            border-right: 1px solid #D5D5D5;
+            border-top: 1px solid #D5D5D5;
+            padding-top: 10px;
+            color: #827E7E;
+            font-size: 20px;
+            height: 60px;
+        }
+
+            .white_table table th span {
+                color: #706868;
+                font-size: 13px;
+                padding-top: 10px;
+            }
+
+        .white_table table tr {
+            height: 30px;
+            text-align: center;
+        }
+
+        .white_table table .grey {
+            background-color: #e9e9e9;
+        }
+
+        .white_table table tr td {
+            border-left: 1px solid #D5D5D5;
+            border-right: 1px solid #D5D5D5;
+            font-weight: normal;
+            white-space: nowrap;
+            padding-top: 10px;
+        }
+
+        .white_table table .btn td {
+            border-left: 1px solid #D5D5D5;
+            border-right: 1px solid #D5D5D5;
+            border-bottom: 1px solid #D5D5D5;
+        }
+
+        .white_table table tr .border_blue {
+            border-left: 1px solid #d7d7d7;
+            border-right: 1px solid #d7d7d7;
+            background: #ededed;
+        }
+
+        .white_table table tr th.border_blue {
+            border-left: 1px solid #d7d7d7;
+            border-top: 1px solid #d7d7d7;
+            border-right: 1px solid #d7d7d7;
+        }
+
+        .white_table table tr .border_blue_bottom {
+            border-bottom: 1px solid #d7d7d7;
+        }
+
+        .white_table table tfoot td.border_blue {
+            border-bottom: 1px solid #d7d7d7;
+            border-left: 1px solid #d7d7d7;
+            border-right: 1px solid #d7d7d7;
+        }
+
+        .white_table .pricing_btn {
+            border-bottom: 1px solid #D5D5D5;
+            height: 80px !important;
+            text-align: center;
+        }
+
+        .pricing_btn .the_button {
+            float: none;
+            margin-top: 0;
+        }
+
+        .white_table .pricing_btn .pricing_btn_orbed {
+            clear: both;
+            display: block;
+            float: left;
+            height: 44px;
+            margin: 0 0 0 52px;
+            padding-left: 13px;
+        }
+
+            .white_table .pricing_btn .pricing_btn_orbed span {
+                color: #FFFFFF;
+                display: block;
+                float: left;
+                font-size: 24px;
+                height: 44px;
+                line-height: 45px;
+                min-width: 100px;
+                padding: 0 10px 0 0;
+            }
+
+        .pricing_black_btn {
+            background: url("../images/blue_bl_bg_black.jpg") repeat-x scroll 0 0 transparent;
+            border: 1px solid #454545;
+            color: #FFFFFF;
+            font-size: 24px;
+            height: 44px;
+            padding: 9px 10px;
+        }
+
+        .pricing_blue_btn {
+            background: url("../images/blue_bl_bg_blue.jpg") repeat-x scroll 0 0 transparent;
+            color: #FFFFFF;
+            font-size: 24px;
+            height: 44px;
+            padding: 9px 10px;
+        }
+
+        .the_button {
+            border-bottom: 1px solid #9f9f9f;
+            border-right: 1px solid #c5c5c5;
+            border-left: 1px solid #c5c5c5;
+            float: left;
+            color: #050505;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: bold;
+            height: 23px;
+            letter-spacing: -0.7px;
+            line-height: 23px;
+            margin: 0;
+            text-align: center;
+            width: auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 1002;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            background: #dddddd;
+            background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffffff), to(#dddddd));
+            background: -webkit-linear-gradient(#ffffff, #dddddd);
+            background: -moz-linear-gradient(#ffffff, #dddddd);
+            background: -ms-linear-gradient(#ffffff, #dddddd);
+            background: -o-linear-gradient(#ffffff, #dddddd);
+            background: linear-gradient(#ffffff, #dddddd);
+            -pie-background: linear-gradient(#ffffff, #dddddd);
+        }
+
+            .the_button:hover, .the_button.active {
+                color: #ffffff;
+                border-bottom: 1px solid #9f9f9f;
+                border-right: 1px solid #c5c5c5;
+                border-left: 1px solid #c5c5c5;
+                background: #949191;
+                background: -webkit-gradient(linear, 0 0, 0 bottom, from(#2e2e2e), to(#2e2e2e));
+                background: -webkit-linear-gradient(#2e2e2e, #2e2e2e);
+                background: -moz-linear-gradient(#2e2e2e, #2e2e2e);
+                background: -ms-linear-gradient(#2e2e2e, #2e2e2e);
+                background: -o-linear-gradient(#2e2e2e, #2e2e2e);
+                background: linear-gradient(#2e2e2e, #2e2e2e);
+                -pie-background: linear-gradient(#2e2e2e, #2e2e2e);
+            }
+
+        a {
+            font-family: trebuchet MS;
+            font-size: 13px;
+            font-weight: normal;
+            text-decoration: none;
+            outline: medium none;
+            color: #000;
+        }
+    </style>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        #header-container {
+            width: 100%;
+            background: #222;
+            position: fixed;
+            z-index: 4;
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        #header-contact-container {
+            width: 100%;
+            background: #444;
+        }
+
+        .clearfix {
+            display: block;
+        }
+
+        #header-contacts {
+            max-width: 1000px;
+            margin: auto;
+            padding: 5px 10px;
+            overflow: hidden;
+            color: #999;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .header-contact {
+            float: left;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        .header-contact .header-number {
+            padding-left: 25px;
+            font-weight: bold;
+            padding-top: 3px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: url(../images/phone20.png) 0px 4px no-repeat;
+        }
+
+        .header-contact .header-email {
+            padding-left: 30px;
+            font-weight: bold;
+            padding-top: 3px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: url(../images/email-header.png) 0px 1px no-repeat;
+        }
+
+        .header-contact li {
+            float: left;
+            list-style-type: none;
+            margin-right: 30px;
+        }
+
+        .header-contact .header-email a {
+            color: #999;
+            text-decoration: none;
+        }
+
+        .header-social {
+            float: right;
+            overflow: hidden;
+        }
+
+            .header-social li {
+                float: left;
+                margin-left: 20px;
+                text-indent: -99999px;
+            }
+
+            .header-social .header-facebook a {
+                background: url(../images/facebook16.png) center no-repeat;
+            }
+
+            .header-social li a {
+                display: block;
+                width: 20px;
+                height: 20px;
+            }
+
+        a {
+            color: #1ABC9C;
+            text-decoration: none;
+            -webkit-transition: all .15s ease-in-out;
+            -moz-transition: all .15s ease-in-out;
+        }
+
+        .header-social .header-twitter a {
+            background: url(../images/twitter20.png) center no-repeat;
+        }
+
+        .header-social .header-linkedin a {
+            background: url(../images/linkedin20.png) center no-repeat;
+        }
+
+        #header {
+            width: 98%;
+            margin: 0;
+            padding: 9px;
+            position: relative;
+        }
+
+        .logo {
+            float: left;
+        }
+
+            .logo h1, .logo img {
+                margin: 0px 0px 10px 0px;
+                padding: 0px;
+                display: block;
+            }
+
+        a {
+            color: #1ABC9C;
+            text-decoration: none;
+            -webkit-transition: all .15s ease-in-out;
+            -moz-transition: all .15s ease-in-out;
+        }
+
+        .logo h1, .logo img {
+            margin: 0px;
+            padding: 0px;
+            display: block;
+            padding-left: 91px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul#nav {
+            float: right;
+            margin: 0px 0px 0px 40px;
+            position: absolute;
+            right: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+            ul#nav li {
+                float: left;
+                margin-left: 70px;
+                position: relative;
+            }
+
+                ul#nav li a {
+                    display: block;
+                    margin: 0px 0px;
+                    border-radius: 5px;
+                    color: #fff;
+                    text-transform: uppercase;
+                }
+
+        #title-container {
+            background: #1ABC9C;
+        }
+
+        .title-block {
+            max-width: 1000px;
+            padding: 20px 20px;
+            margin: auto;
+        }
+
+            .title-block h2 {
+                color: #fff;
+                font-size: 40px;
+                line-height: 65px;
+                font-weight: 600;
+                padding-top: 70px;
+            }
+
+
+        #footer-container {
+            padding: 40px 20px 20px;
+            background: #333;
+            position: relative;
+            z-index: 2;
+        }
+
+        #footer {
+            font-size: 13px;
+            overflow: hidden;
+        }
+
+        #footer {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .footer-widgets {
+            color: #ddd;
+        }
+
+        .four-column .column {
+            float: left;
+            width: 22.75%;
+            margin-right: 3%;
+            margin-bottom: 30px;
+        }
+
+        .footer-widgets .widgettitle {
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .footer-widgets .chirp span.meta, .footer-widgets .widget li {
+            padding: 0 0 8px;
+            margin: 0 0 8px;
+            border-bottom: 2px solid #444;
+        }
+
+        .widget_popular_posts li a {
+            display: block;
+        }
+
+        .footer-widgets a {
+            color: #eee;
+        }
+
+        .four-column .column {
+            float: left;
+            width: 22.75%;
+            margin-right: 3%;
+            margin-bottom: 30px;
+        }
+
+            .four-column .column:nth-child(3n+4) {
+                clear: none;
+            }
+
+            .four-column .column:nth-child(4n+4) {
+                margin-right: 0;
+            }
+
+
+        ol, ul {
+            list-style: none outside none;
+            margin-left: -40px;
+        }
+
+        .dater {
+            margin: 0;
+            padding: 0;
+        }
+
+        #footer-base-container {
+            padding: 10px;
+            background: #252525;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-text {
+            margin: auto;
+            padding: 0;
+            overflow: hidden;
+            clear: both;
+            color: #999;
+            font-size: 11px;
+        }
+
+        #footer-navigation-container {
+            display: block;
+            overflow: hidden;
+            margin-bottom: 3px;
+        }
+
+        .footer-text p {
+            float: left;
+        }
+
+        .obox-credit {
+            float: right;
+        }
+
+        .footer-text p {
+            float: left;
+        }
+
+        .footer-text a {
+            color: #ccc;
+        }
+
+
+        #comments {
+            background: none repeat scroll 0 0 #F4F4F4;
+            clear: both;
+            margin: 30px auto;
+            max-width: 930px;
+            padding: 30px;
+        }
+
+        #respond {
+            background: #1ABC9C;
+            padding: 30px;
+            margin: 0px -30px -30px;
+        }
+
+            #respond #reply-title {
+                padding: 0;
+                margin-bottom: 20px;
+                color: #fff;
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+        small {
+            font-size: 75%;
+        }
+
+        #respond .comment-notes, #respond .logged-in-as {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        #respond p {
+            margin-bottom: 10px;
+        }
+
+        #respond .required {
+            color: #34495E;
+        }
+
+        #respond label {
+            color: #fff;
+        }
+
+        #respond input[type=text] {
+            border: none;
+        }
+
+        input[type=text], input[type=password] {
+            width: 90%;
+            max-width: 280px;
+            border: 1px solid #e0e0e0;
+        }
+
+
+        #respond .form-submit {
+            margin: 0;
+        }
+
+        #respond #submit:hover {
+            background: #446380;
+            color: #fff;
+        }
+
+        .pvrtracksdesc {
+            display: block;
+            margin: 0px 0px;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        #footer-base-container {
+            width: 99%;
+            background: #252525;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-text {
+            margin: auto;
+            overflow: hidden;
+            clear: both;
+            color: #999;
+            font-size: 11px;
+        }
+
+        #footer-navigation-container {
+            display: block;
+            overflow: hidden;
+        }
+
+        .obox-credit {
+            float: right;
+        }
+    </style>
+    <link href="~/CSS/reset.css" rel="stylesheet" />
+    <link href="~/CSS/stcss.css" rel="stylesheet" />
+    <link href="~/CSS/styles.css" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function newCookie(name, value, days) {
+            var days = 10;   // the number at the left reflects the number of days for the cookie to last
+            // modify it according to your needs
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                var expires = "; expires=" + date.toGMTString();
+            }
+            else var expires = "";
+            document.cookie = name + "=" + value + expires + "; path=/";
+        }
+
+        function readCookie(name) {
+            var nameSG = name + "=";
+            var nuller = '';
+            if (document.cookie.indexOf(nameSG) == -1)
+                return nuller;
+
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameSG) == 0) return c.substring(nameSG.length, c.length);
+            }
+            return null;
+        }
+
+        function eraseCookie(name) {
+            newCookie(name, "", 1);
+        }
+
+        function toMem(a) {
+            newCookie('txtUserName', document.getElementById('txtUserName').value);     // add a new cookie as shown at left for every
+        }
+
+        function delMem(a) {
+            eraseCookie('txtUserName');   // make sure to add the eraseCookie function for every field
+        }
+
+        function remCookie() {
+            if (null != document.getElementById('txtUserName')) {
+                document.getElementById('txtUserName').value = readCookie("txtUserName");
+                if (document.getElementById('txtUserName').value != "") {
+                    document.getElementById('chkRememberMe').checked = true;
+                }
+            }
+        }
+
+        function CheckData() {
+            var d = new Date();
+            var gmtHours = -d.getTimezoneOffset();
+            var lUsername = document.getElementById('txtUserName').value;
+            var lPassword = document.getElementById('txtPassword').value;
+            var lremb = document.getElementById('chkRememberMe').checked;
+            if (lUsername == "") {
+                alert('User name is required');
+                //ModalPopupsAlert("Softtrends Server - User name","User name is required.");
+                return;
+            }
+
+            else if (lPassword == "") {
+                alert('Password is required');
+                return;
+            }
+            else {
+                if (lremb == true) {
+                    toMem(this);
+                }
+                else {
+                    delMem(this);
+                }
+                document.hiidenlogin.action = "UI/HiddenLogin.aspx?z=" + gmtHours + "&un=" + lUsername + "&pwd=" + lPassword;
+                document.hiidenlogin.method = "POST";
+            }
+        }
+
+        function getQuerystring(key, default_) {
+            var search = unescape(location.search);
+            search = search.substr(1);
+            var params = search.split("&");
+            for (var i = 0; i < params.length; i++) {
+                var pairs = params[i].split("=");
+                if (pairs[0] == key) {
+                    return pairs[1];
+                }
+            }
+        }
+
+        function CheckInvalidUser() {
+            remCookie();
+            var lIsSet = false;
+            var lUserName = "";
+            var lPassword = "";
+            var search = unescape(location.search);
+
+            search = search.substr(1);
+            var params = search.split("&");
+            for (var i = 0; i < params.length; i++) {
+                var pairs = params[i].split("=");
+                if (pairs[0] == "txtUserName") {
+                    lUserName = pairs[1];
+                }
+                if (pairs[0] == "txtPassword") {
+                    lPassword = pairs[1];
+                }
+            }
+            var urlString = unescape(window.location)
+
+            if (lUserName != "") {
+                document.getElementById('txtUserName').value = lUserName;
+            }
+            else {
+                document.forms['hiidenlogin'].elements['txtUserName'].focus();
+                lIsSet = true;
+            }
+            if (lPassword != "") {
+
+                document.getElementById('txtPassword').value = lPassword;
+            }
+            else {
+                if (lIsSet == false) {
+                    document.forms['hiidenlogin'].elements['txtPassword'].focus();
+                }
+            }
+            var a = urlString.substr(urlString.indexOf("a=") + 2, urlString.length)
+            if (a == 1) {
+                //alert('user name or password entered is wrong. If you have forgotten your user name or password please use forgot password to retrieve your user name and password ');
+                ModalPopupsAlert("Loyalty - Login error", "User name or password entered is wrong.<br /> If you have forgotten your user name or password please use forgot password to retrieve your user name and password.");
+            }
+            if (a == 3) {
+                //alert("Your session has expired. Please login again");
+                document.forms['hiidenlogin'].elements['txtUserName'].focus();
+                ModalPopupsAlert("Loyalty - Session expired", "Your session has expired. Please login again.");
+            }
+            if (a == 4) {
+                //alert("You have changed your subscription information, so your session is expired. Please login to take the changes in effect");
+                ModalPopupsAlert("Loyalty - Subscription modified", "You have changed your subscription information, so your session is expired. Please login to take the changes in effect.");
+            }
+        }
+        function ModalPopupsAlert(headerText, Message) {
+            ModalPopups.Alert("jsAlert1", headerText,
+                "<div style='padding:25px;'>" + Message + "</div>",
+                {
+                    okButtonText: "OK"
+                }
+            );
+        }
+        function CreateAccount() {
+            window.location = 'UI/CreateTrialSubscription.aspx';
+        }
+        function CreateOrganization() {
+            window.location = 'UI/contactus.aspx?type=Organization';
+        }
+        function TrialSubscription() {
+            var lCheckedProductLavel;
+            if (document.getElementById('rdoEnterprise') != null) {
+                if (document.getElementById('rdoEnterprise').checked) {
+                    lCheckedProductLavel = 1;
+                }
+            }
+            if (document.getElementById('rdoProfessional') != null) {
+                if (document.getElementById('rdoProfessional').checked) {
+                    lCheckedProductLavel = 2;
+                }
+            }
+            if (document.getElementById('rdoCallTracker') != null) {
+                if (document.getElementById('rdoCallTracker').checked) {
+                    lCheckedProductLavel = 3;
+                }
+            }
+            if (document.getElementById('rdoMessageTracker') != null) {
+                if (document.getElementById('rdoMessageTracker').checked) {
+                    lCheckedProductLavel = 4;
+                }
+            }
+            if (document.getElementById('rdoLocationTracker') != null) {
+                if (document.getElementById('rdoLocationTracker').checked) {
+                    lCheckedProductLavel = 5;
+                }
+            }
+            if (lCheckedProductLavel != null) {
+                window.location.href = "Agreement.aspx?Action=2&pn=1&pl=" + lCheckedProductLavel;
+            }
+            else {
+                alert('Please select product from the list above to subscribe');
+                return;
+            }
+        }
+        function CancelSubscription() {
+            window.location.href = '../index.htm';
+        }
+    </script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $('.white_table td, .white_table th')
+		    .live('mouseenter', function () {
+		        var the_parent = $('.white_table');
+		        the_parent.find('*').removeClass('border_blue');
+		        var index = $(this).index();
+		        the_parent.find('tr').each(function (i) {
+		            var item = $(this);
+		            if (item.hasClass('grey')) {
+		                item.find('th:eq(' + index + ') , td:eq(' + index + ')').addClass('w_table_l_grey');
+		            } else {
+		                item.find('th:eq(' + index + ') , td:eq(' + index + ')').addClass('w_table_d_grey');
+		            }
+		        });
+		    })
+		    .live('mouseleave', function () {
+		        $('.white_table').find('*').removeClass('w_table_d_grey').removeClass('w_table_l_grey');
+		    });
+        });
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() != 0) {
+                    $('#top').fadeIn();
+                } else {
+                    $('#top').fadeOut();
+                }
+            });
+
+            $('#top').click(function () {
+                $('body,html').animate({ scrollTop: 0 }, 800);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <div id="header-container">
+            <div id="header-contact-container" class="clearfix">
+                <div id="header-contacts">
+                    <ul class="header-contact">
+                        <li class="header-number">+(91) 80-25255087</li>
+                        <li class="header-email"><a href="mailto:info@softtrends.com">info@softtrends.com</a></li>
+                    </ul>
+                    <ul class="header-social">
+                        <li class="header-facebook">
+                            <a href="https://www.facebook.com/Softtrends.Software?ref=ts&amp;fref=ts">
+                                Facebook
+                            </a>
+                        </li>
+                        <li class="header-twitter"><a href="https://twitter.com/Softtrends">Twitter</a></li>
+                        <li class="header-linkedin">
+                            <a href="http://www.linkedin.com/company/softtrends-software-pvt.-ltd.?trk=top_nav_home">
+                                LinkedIn
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="header" class="clearfix">
+                <div class="logo">
+                    <h1>
+                        <a href="http://mjclients.in/workers-in-motion-2">
+                            <img src="http://mjclients.in/workers-in-motion-2/wp-content/uploads/2013/05/logo1-1.png"
+                                 alt="Field Force Management App">
+                        </a>
+                    </h1>
+                </div>
+                <a id="menu-drop-button" href="#"></a>
+                <div id="navigation-container" class="clearfix">
+                    <ul id="nav" class="clearfix sf-js-enabled sf-shadow" style="">
+                        <li id="menu-item-1202" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1202">
+                            <a href="http://mjclients.in/workers-in-motion-2">Home</a>
+                        </li>
+                        <li id="menu-item-1214" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1214">
+                            <a href="http://mjclients.in/workers-in-motion-2/?page_id=94">Features</a>
+                        </li>
+                        <li id="menu-item-1218" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-1216 current_page_item menu-item-1218">
+                            <a href="http://mjclients.in/workers-in-motion-2/?page_id=1216">Pricing</a>
+                        </li>
+                        <li id="menu-item-1285" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1285">
+                            <a href="http://mjclients.in/workers-in-motion-2/?cat=2">Blog</a>
+                        </li>
+                        <li id="menu-item-1203" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1203">
+                            <a href="http://mjclients.in/workers-in-motion-2/?page_id=9">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <table>
+            <tr>
+                <td style="padding-left: 80px; font-size: 13px;">
+                    This page allows to subscribe to a product.If you need to update, please contact
+                    the Administrator with the update details.
+                </td>
+            </tr>
+            <tr style="height: 10px;"></tr>
+            <tr>
+                <td style="padding-left: 80px; font-size: 13px;">
+                    Note: You will use the selected plan for free for 10 days. You will not be asked
+                    any payment information during this sign-up process. Once you are satisfied using
+                    the service, you will select an option in your home page (before end of the trial
+                    period) to enter your payment details and make the payment to continue to use the
+                    service.
+                </td>
+            </tr>
+        </table>
+        <div class="inner">
+            <div class="white_table">
+                <table style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th>
+                                Enterprise<br />
+                                <br />
+                                <h4 style="font-size: 14px;">
+                                    $ 20.00<span style="font-size: 14px;">/month</span>
+                                </h4>
+                            </th>
+                            <th>
+                                Professional<br />
+                                <br />
+                                <h4 style="font-size: 14px;">
+                                    $ 15.00<span style="font-size: 14px;">/month</span>
+                                </h4>
+                            </th>
+                            <th>
+                                Call Tracker<br />
+                                <br />
+                                <h4 style="font-size: 14px;">
+                                    $ 10.00<span style="font-size: 14px;">/month</span>
+                                </h4>
+                            </th>
+                            <th>
+                                Message Tracker<br />
+                                <br />
+                                <h4 style="font-size: 14px;">
+                                    $ 6.00<span style="font-size: 14px;">/month</span>
+                                </h4>
+                            </th>
+                            <th>
+                                Location Tracker<br />
+                                <br />
+                                <h4 style="font-size: 14px;">
+                                    $ 4.00<span style="font-size: 14px;">/month</span>
+                                </h4>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr class="pricing_btn">
+                            <td>
+                                <a class="the_button" href="/User/Agreement">Sign Up</a>
+                            </td>
+                            <td>
+                                <a class="the_button" href="/User/Agreement">Sign Up</a>
+                            </td>
+                            <td>
+                                <a class="the_button" href="/User/Agreement">Sign Up</a>
+                            </td>
+                            <td>
+                                <a class="the_button" href="/User/Agreement">Sign Up</a>
+                            </td>
+                            <td>
+                                <a class="the_button" href="/User/Agreement">Sign Up</a>
+                            </td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr class="grey">
+                            <td>
+                                Phone Call Recording and tracking
+                            </td>
+                            <td>
+                                Phone Call Recording and tracking
+                            </td>
+                            <td>
+                                Phone Call Recording and tracking
+                            </td>
+                            <td>
+                                X
+                            </td>
+                            <td>
+                                X
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Meeting Recording and tracking
+                            </td>
+                            <td>
+                                Meeting Recording and tracking
+                            </td>
+                            <td>
+                                X
+                            </td>
+                            <td>
+                                X
+                            </td>
+                            <td>
+                                X
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Voice Note / Dictation and tracking
+                            </td>
+                            <td>
+                                Voice Note / Dictation and tracking
+                            </td>
+                            <td>
+                                X
+                            </td>
+                            <td>
+                                X
+                            </td>
+                            <td>
+                                X
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Voice Mail
+                            </td>
+                            <td>
+                                X
+                            </td>
+                            <td>
+                                X
+                            </td>
+                            <td>
+                                X
+                            </td>
+                            <td>
+                                X
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Schedule Recording
+                            </td>
+                            <td>
+                                X
+                            </td>
+                            <td>
+                                X
+                            </td>
+                            <td>
+                                X
+                            </td>
+                            <td>
+                                X
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Workflow through SMS
+                            </td>
+                            <td>
+                                Workflow through SMS
+                            </td>
+                            <td>
+                                Workflow through SMS
+                            </td>
+                            <td>
+                                X
+                            </td>
+                            <td>
+                                X
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                SMS Backup
+                            </td>
+                            <td>
+                                SMS Backup
+                            </td>
+                            <td>
+                                SMS Backup
+                            </td>
+                            <td>
+                                SMS Backup
+                            </td>
+                            <td>
+                                X
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Contact Activity tracking
+                            </td>
+                            <td>
+                                Contact Activity tracking
+                            </td>
+                            <td>
+                                Contact Activity tracking
+                            </td>
+                            <td>
+                                Contact Activity tracking
+                            </td>
+                            <td>
+                                X
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Place/Account Activity tracking
+                            </td>
+                            <td>
+                                Place/Account Activity tracking
+                            </td>
+                            <td>
+                                Place/Account Activity tracking
+                            </td>
+                            <td>
+                                Place/Account Activity tracking
+                            </td>
+                            <td>
+                                X
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                GPS Location tracking
+                            </td>
+                            <td>
+                                GPS Location tracking
+                            </td>
+                            <td>
+                                GPS Location tracking
+                            </td>
+                            <td>
+                                GPS Location tracking
+                            </td>
+                            <td>
+                                GPS Location tracking
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Cell ID based location tracking
+                            </td>
+                            <td>
+                                Cell ID based location tracking
+                            </td>
+                            <td>
+                                Cell ID based location tracking
+                            </td>
+                            <td>
+                                Cell ID based location tracking
+                            </td>
+                            <td>
+                                Cell ID based location tracking
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Proximity detection and tracking
+                            </td>
+                            <td>
+                                Proximity detection and tracking
+                            </td>
+                            <td>
+                                Proximity detection and tracking
+                            </td>
+                            <td>
+                                Proximity detection and tracking
+                            </td>
+                            <td>
+                                Proximity detection and tracking
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Market based location tracking
+                            </td>
+                            <td>
+                                Market based location tracking
+                            </td>
+                            <td>
+                                Market based location tracking
+                            </td>
+                            <td>
+                                Market based location tracking
+                            </td>
+                            <td>
+                                Market based location tracking
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Web based user interface
+                            </td>
+                            <td>
+                                Web based user interface
+                            </td>
+                            <td>
+                                Web based user interface
+                            </td>
+                            <td>
+                                Web based user interface
+                            </td>
+                            <td>
+                                Web based user interface
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Web based tracking using Map
+                            </td>
+                            <td>
+                                Web based tracking using Map
+                            </td>
+                            <td>
+                                Web based tracking using Map
+                            </td>
+                            <td>
+                                Web based tracking using Map
+                            </td>
+                            <td>
+                                Web based tracking using Map
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Central Configuration management
+                            </td>
+                            <td>
+                                Central Configuration management
+                            </td>
+                            <td>
+                                Central Configuration management
+                            </td>
+                            <td>
+                                Central Configuration management
+                            </td>
+                            <td>
+                                Central Configuration management
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Auto forwarding to Email ID
+                            </td>
+                            <td>
+                                Auto forwarding to Email ID
+                            </td>
+                            <td>
+                                Auto forwarding to Email ID
+                            </td>
+                            <td>
+                                Auto forwarding to Email ID
+                            </td>
+                            <td>
+                                X
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Outlook plugged Management UI
+                            </td>
+                            <td>
+                                Outlook plugged Management UI
+                            </td>
+                            <td>
+                                Outlook plugged Management UI
+                            </td>
+                            <td>
+                                Outlook plugged Management UI
+                            </td>
+                            <td>
+                                X
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                30 GB Storage Limit
+                            </td>
+                            <td>
+                                20 GB Storage Limit
+                            </td>
+                            <td>
+                                10 GB Storage Limit
+                            </td>
+                            <td>
+                                3 GB Storage Limit
+                            </td>
+                            <td>
+                                1 GB Storage Limit
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                $0 Setup Fee
+                            </td>
+                            <td>
+                                $0 Setup Fee
+                            </td>
+                            <td>
+                                $0 Setup Fee
+                            </td>
+                            <td>
+                                $0 Setup Fee
+                            </td>
+                            <td>
+                                $0 Setup Fee
+                            </td>
+                        </tr>
+                        <tr class="grey">
+                            <td>
+                                Volume Discount
+                            </td>
+                            <td>
+                                Volume Discount
+                            </td>
+                            <td>
+                                Volume Discount
+                            </td>
+                            <td>
+                                Volume Discount
+                            </td>
+                            <td>
+                                Volume Discount
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="footer-base-container">
+        <div class="footer-text">
+            <div id="footer-navigation-container">
+            </div>
+            <p>
+                © 2013 SoftTrends Software Pvt Ltd. | All Rights Reserved
+            </p>
+            <div class="obox-credit">
+                <p style="padding-right: 100px;">
+                    <a href="http://www.MediaJackers.com">Digital Marketing Partner</a> - <a href="http://www.MediaJackers.com">
+                        MediaJackers
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
