@@ -75,6 +75,9 @@ namespace Loyalty.Controllers
 
         public IActionResult Login(Login _login)
         {
+
+            _user.CreateUserTable();
+            _user.CreateMembershipTable();
             List<Login> _usrlogin = _user.GetLogin(_login);
 
             if (_usrlogin != null && _usrlogin.Count > 0)

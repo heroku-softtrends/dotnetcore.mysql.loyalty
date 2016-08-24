@@ -105,6 +105,39 @@ namespace Loyalty.Repository
         }
 
 
+
+        public void CreateUserTable()
+        {
+            MySqlConnection conn;
+            MySqlCommand cmd;
+            using (conn = new MySqlConnection(Config.ConnectionString))
+            {
+                conn.Open();
+
+                using (cmd = new MySqlCommand("CREATE TABLE IF NOT EXISTS `users` (`UserID` varchar(50) NOT NULL,`FirstName` varchar(50) DEFAULT NULL,`LastName` varchar(50) DEFAULT NULL,`Gender` varchar(10) DEFAULT NULL,`DateofBirth` date DEFAULT NULL,`MobileNumber` varchar(50) DEFAULT NULL,`EmailID` varchar(100) DEFAULT NULL,`Password` varchar(50) NOT NULL,`CreateDate` datetime DEFAULT NULL,`LastModifiedDate` datetime DEFAULT NULL,`IsActive` bit(1) DEFAULT b'1', PRIMARY KEY(`UserID`)) ENGINE = InnoDB DEFAULT CHARSET = utf8;", conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
+        }
+
+        public void CreateMembershipTable()
+        {
+            MySqlConnection conn;
+            MySqlCommand cmd;
+            using (conn = new MySqlConnection(Config.ConnectionString))
+            {
+                conn.Open();
+
+                using (cmd = new MySqlCommand("CREATE TABLE IF NOT EXISTS `membership` (`MembershipID` varchar(50) NOT NULL,`UserID` varchar(50) DEFAULT NULL,`MemberID` varchar(50) DEFAULT NULL,`LoyaltyCardNo` varchar(50) DEFAULT NULL,`ExpirationDate` date DEFAULT NULL,`MemberSiteURL` varchar(100) DEFAULT NULL,`CreateDate` datetime DEFAULT NULL,`LastModifiedDate` datetime DEFAULT NULL,PRIMARY KEY (`MembershipID`),KEY `FK_Users` (`UserID`),CONSTRAINT `FK_Users` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`) ON DELETE NO ACTION ON UPDATE NO ACTION) ENGINE = InnoDB DEFAULT CHARSET = utf8;", conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
+        }
+
         public List<Users> GetUserByID(string userid)
         {
             List<Users> lstUser = new List<Users>();
