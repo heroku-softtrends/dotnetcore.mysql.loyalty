@@ -5,7 +5,6 @@
   "repository": "https://github.com/heroku-softtrends/dotnetcore.mysql.sample",
   "logo": "https://avatars2.githubusercontent.com/u/20908829?v=3&s=150",
   "keywords": [ "aspnet core", "aspnet core mysql" ],
- 
   "buildpacks": [
     {
       "url": "https://github.com/heroku-softtrends/dotnetcore.main.git"
