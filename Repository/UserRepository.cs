@@ -13,8 +13,8 @@ namespace Loyalty.Repository
     {
         //public string _connectionString = "host=localhost;port=3306;database=loyalty;uid=root;pwd=password;";
         //public string _connectionString = "host=209.198.193.73;port=3800;database=loyalty;uid=root;pwd=password;";
-        //public string _connectionString = "host=us-cdbr-iron-east-04.cleardb.net;port=3306;database=heroku_0aaed3e5ac3fbc1;uid=b2fc2195b8e3a5;pwd=642f1680662180d;";
-        public string _connectionString = Environment.GetEnvironmentVariable("CLEARDB_DATABASE_URL");
+          public string _connectionString = "host=us-cdbr-iron-east-04.cleardb.net;port=3306;database=heroku_0aaed3e5ac3fbc1;uid=b2fc2195b8e3a5;pwd=642f1680662180d;";
+        //public string _connectionString = Environment.GetEnvironmentVariable("CLEARDB_DATABASE_URL");
 
         public List<Login> GetLogin(Login login)
         {
