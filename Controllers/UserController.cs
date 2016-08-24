@@ -75,10 +75,6 @@ namespace Loyalty.Controllers
 
         public IActionResult Login(Login _login)
         {
-
-              string   _connectionString = Environment.GetEnvironmentVariable("CLEARDB_DATABASE_URL");
-              TempData["notice"] = _connectionString;
-
             List<Login> _usrlogin = _user.GetLogin(_login);
 
             if (_usrlogin != null && _usrlogin.Count > 0)

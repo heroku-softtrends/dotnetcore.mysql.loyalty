@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-
+using Loyalty.Models;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -47,9 +47,22 @@ namespace Loyalty
                 options.ExpirationScanFrequency = TimeSpan.FromMinutes(300);
             });
             services.AddSession();
-            //services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
-            services.AddMvc();     
-           // services.AddDbContext<WorkersInMotionDB>(options => options.UseSqlServer(connection));
+
+            services.AddMvc();
+
+            string _connectionString = Environment.GetEnvironmentVariable("CLEARDB_DATABASE_URL");
+            _connectionString.Replace("//", "");
+
+            char[] delimiterChars = { '/', ':', '@', '?' };
+            string[] strConn = _connectionString.Split(delimiterChars);
+            strConn = strConn.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+
+            Config.User = strConn[1];
+            Config.Pass = strConn[2];
+            Config.Server = strConn[3];
+            Config.Database = strConn[4];
+            Config.Port = "3306";
+            Config.ConnectionString = "host=" + Config.Server + ";port=" + Config.Port + ";database=" + Config.Database + ";uid=" + Config.User + ";pwd=" + Config.Pass + ";";
 
         }
 

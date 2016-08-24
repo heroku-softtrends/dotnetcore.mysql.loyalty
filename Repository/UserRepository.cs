@@ -11,17 +11,18 @@ namespace Loyalty.Repository
 {
     public class UserRepository
     {
-        //public string _connectionString = "host=localhost;port=3306;database=loyalty;uid=root;pwd=password;";
-        //public string _connectionString = "host=209.198.193.73;port=3800;database=loyalty;uid=root;pwd=password;";
-          public string _connectionString = "host=us-cdbr-iron-east-04.cleardb.net;port=3306;database=heroku_0aaed3e5ac3fbc1;uid=b2fc2195b8e3a5;pwd=642f1680662180d;";
+        //public string _connectionString = "host=us-cdbr-iron-east-04.cleardb.net;port=3306;database=heroku_0aaed3e5ac3fbc1;uid=b2fc2195b8e3a5;pwd=642f1680662180d;";
         //public string _connectionString = Environment.GetEnvironmentVariable("CLEARDB_DATABASE_URL");
+
+     
 
         public List<Login> GetLogin(Login login)
         {
-           
-           List<Login> lstLogin = new List<Login>();
+         
+
+            List<Login> lstLogin = new List<Login>();
             Login _login;
-            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            using (MySqlConnection conn = new MySqlConnection(Config.ConnectionString))
             {
                 MySqlCommand cmd = new MySqlCommand("select UserID,FirstName,LastName from users where emailid='" + login.UserName + "' and password='" + login.Password + "'", conn);
                 conn.Open();
@@ -42,16 +43,16 @@ namespace Loyalty.Repository
 
 
         public double Getdbsize()
-        {     
-            double _dbsize=0;
-            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+        {
+            double _dbsize = 0;
+            using (MySqlConnection conn = new MySqlConnection(Config.ConnectionString))
             {
                 MySqlCommand cmd = new MySqlCommand("SELECT ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS  'Size (MB)' FROM information_schema.TABLES Where table_schema='heroku_0aaed3e5ac3fbc1'", conn);
                 conn.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    _dbsize = double.Parse(reader.GetString(0));                    
+                    _dbsize = double.Parse(reader.GetString(0));
                 }
                 reader.Close();
                 return _dbsize;
@@ -62,7 +63,7 @@ namespace Loyalty.Repository
         {
             MySqlConnection conn;
             MySqlCommand cmd;
-            using (conn = new MySqlConnection(_connectionString))
+            using (conn = new MySqlConnection(Config.ConnectionString))
             {
                 conn.Open();
                 string DOB = _UsrAcc.DateofBirth.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
@@ -80,7 +81,7 @@ namespace Loyalty.Repository
         {
             List<Users> lstUser = new List<Users>();
             Users _User;
-            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            using (MySqlConnection conn = new MySqlConnection(Config.ConnectionString))
             {
                 MySqlCommand cmd = new MySqlCommand("select * from users where emailid='" + mailid + "'", conn);
                 conn.Open();
@@ -108,7 +109,7 @@ namespace Loyalty.Repository
         {
             List<Users> lstUser = new List<Users>();
             Users _User;
-            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            using (MySqlConnection conn = new MySqlConnection(Config.ConnectionString))
             {
                 MySqlCommand cmd = new MySqlCommand("select * from users where userid='" + userid + "'", conn);
                 conn.Open();
@@ -135,7 +136,7 @@ namespace Loyalty.Repository
         {
             MySqlConnection conn;
             MySqlCommand cmd;
-            using (conn = new MySqlConnection(_connectionString))
+            using (conn = new MySqlConnection(Config.ConnectionString))
             {
                 conn.Open();
 

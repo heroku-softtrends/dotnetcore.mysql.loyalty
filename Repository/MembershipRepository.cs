@@ -11,15 +11,11 @@ namespace Loyalty.Repository
 {
     public class MembershipRepository
     {
-        //public string _connectionString = "host=localhost;port=3306;database=loyalty;uid=root;pwd=password;";
-        //public string _connectionString = "host=209.198.193.73;port=3800;database=loyalty;uid=root;pwd=password;";
-         public string _connectionString = "host=us-cdbr-iron-east-04.cleardb.net;port=3306;database=heroku_0aaed3e5ac3fbc1;uid=b2fc2195b8e3a5;pwd=642f1680662180d;";
-        //public string _connectionString = Environment.GetEnvironmentVariable("CLEARDB_DATABASE_URL");
         public List<Membership> GetMembership(string _userid)
         {
             List<Membership> lstMembership = new List<Membership>();
             Membership _membership;
-            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            using (MySqlConnection conn = new MySqlConnection(Config.ConnectionString))
             {
                 MySqlCommand cmd = new MySqlCommand("select * from membership where userid='" + _userid + "'", conn);
                 conn.Open();
@@ -45,7 +41,7 @@ namespace Loyalty.Repository
         {
             List<Membership> lstMembership = new List<Membership>();
             Membership _membership;
-            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            using (MySqlConnection conn = new MySqlConnection(Config.ConnectionString))
             {
                 MySqlCommand cmd = new MySqlCommand("select * from membership where membershipid='" + _membershipid + "'", conn);
                 conn.Open();
@@ -71,7 +67,7 @@ namespace Loyalty.Repository
         {
             MySqlConnection conn;
             MySqlCommand cmd;
-            using (conn = new MySqlConnection(_connectionString))
+            using (conn = new MySqlConnection(Config.ConnectionString))
             {
                 conn.Open();
                 string MembershipID = GetUniqueId();
@@ -91,7 +87,7 @@ namespace Loyalty.Repository
         {
             MySqlConnection conn;
             MySqlCommand cmd;
-            using (conn = new MySqlConnection(_connectionString))
+            using (conn = new MySqlConnection(Config.ConnectionString))
             {
                 conn.Open();
                 string ExpDate = _membership.ExpirationDate.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
