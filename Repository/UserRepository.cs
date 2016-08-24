@@ -47,7 +47,7 @@ namespace Loyalty.Repository
             double _dbsize = 0;
             using (MySqlConnection conn = new MySqlConnection(Config.ConnectionString))
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS  'Size (MB)' FROM information_schema.TABLES Where table_schema='heroku_0aaed3e5ac3fbc1'", conn);
+                MySqlCommand cmd = new MySqlCommand("SELECT ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS  'Size (MB)' FROM information_schema.TABLES Where table_schema='" + Config.Database +"'", conn);
                 conn.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
