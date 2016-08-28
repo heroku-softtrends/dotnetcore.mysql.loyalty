@@ -1,4 +1,4 @@
-﻿# ASP.NET Core MySQL Sample app for Heroku
+# .NET Core Buildpack with Heroku MySQL Support (Heroku Button)
 
 This uses the .Net Core Buildpack provided by Softtends<br>
 
