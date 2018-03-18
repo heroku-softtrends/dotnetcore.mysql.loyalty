@@ -1,5 +1,5 @@
 {
-   "name":"ASP.NET Core MySQL Website",
+   "name":"ASP.NET Core Sample using MySQL",
    "description":"ASP.NET Core MySQL website",
    "website":"http://www.softtrends.com/",
    "repository":"https://github.com/heroku-softtrends/dotnetcore.mysql.sample",
